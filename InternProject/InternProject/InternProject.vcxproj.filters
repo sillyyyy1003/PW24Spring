@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ResourceFile">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{f1c04592-2452-49de-ac33-ee380210e483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="!HeaderFile">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="!SourceFile">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Canvas2D">
+      <UniqueIdentifier>{72cd8ce0-d337-4400-ad1d-93d4241729f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Canvas2D\Animation2D">
+      <UniqueIdentifier>{bb8db4f4-d530-40d2-b3e9-602f7e0db79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{bb54e409-88a8-4b2a-8490-8c0d8bd68b6c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="WinMain.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX3D.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveFrontReader.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="WICTextureLoader.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelShader.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexShader.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Animaion.h">
+      <Filter>Canvas2D\Animation2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas2D.h">
+      <Filter>Canvas2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>!SourceFile</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX3D.cpp">
+      <Filter>!SourceFile</Filter>
+    </ClCompile>
+    <ClCompile Include="WICTextureLoader.cpp">
+      <Filter>!SourceFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Animaion.cpp">
+      <Filter>Canvas2D\Animation2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas2D.cpp">
+      <Filter>Canvas2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="VertexShader.hlsl">
+      <Filter>ResourceFile</Filter>
+    </FxCompile>
+    <FxCompile Include="PixelShader.hlsl">
+      <Filter>ResourceFile</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
