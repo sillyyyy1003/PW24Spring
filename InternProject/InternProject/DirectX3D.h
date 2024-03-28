@@ -36,11 +36,11 @@ private:
 
 	DirectX3D() {};
 
-	D3D_DATA* pD3D;
+	D3D_DATA* pD3D = nullptr;
 
 	ID3D11Buffer* ConstantBuffer;
 
-public:
+
 
 public:
 
@@ -49,7 +49,7 @@ public:
 	D3D_DATA* GetD3D_Data() { return pD3D; };
 	ID3D11Device* GetD3D_Device() { return pD3D->Device; };
 	ID3D11DeviceContext* GetD3D_Context() { return pD3D->Context; };
-
+	ID3D11Buffer* GetConstantBuffer() { return ConstantBuffer; };
 
 	//DirectX初期化
 	void DirectXInit(HWND hWnd);

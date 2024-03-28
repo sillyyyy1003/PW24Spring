@@ -206,8 +206,8 @@ void DirectX3D::SetViewPort(void)
     //画面分割などに使う、描画領域の指定のこと
     pD3D->Viewport.TopLeftX = 0;
     pD3D->Viewport.TopLeftY = 0;
-    pD3D->Viewport.Width = g_ScreenWidth;
-    pD3D->Viewport.Height = g_ScreenHeight;
+    pD3D->Viewport.Width = (float)g_ScreenWidth;
+    pD3D->Viewport.Height = (float)g_ScreenHeight;
     pD3D->Viewport.MinDepth = 0.0f;
     pD3D->Viewport.MaxDepth = 1.0f;
 }
@@ -310,7 +310,7 @@ BOOL DirectX3D::CreateBlendState(void)
 void DirectX3D::ClearScreen(void)
 {
     // 画面塗りつぶし色
-    float clearColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f }; //red,green,blue,alpha
+    float clearColor[4] = { 1.0f, 0.0f, 1.0f, 1.0f }; //red,green,blue,alpha
 
     // 描画先のキャンバスと使用する深度バッファを指定する
     pD3D->Context->OMSetRenderTargets(1, &pD3D->RenderTarget, pD3D->DepthStencilView);

@@ -1,6 +1,6 @@
 struct VS_IN
 {
-	float4 pos : POSITIONT;
+	float4 pos : POSITION;
 	float2 tex : TEX;
 	float4 normal : NORMAL;
 };

@@ -1,18 +1,14 @@
 ﻿#include "framework.h"
 #include "WinMain.h"
 #include "DirectX3D.h"
+#include "Game.h"
 
 #define MAX_LOADSTRING 128
 
 //グローバル変数
 HINSTANCE hInstance;
 HWND hWnd;
-
-//関数定義
-ATOM MyRegisterClass(HINSTANCE hInstance);
-BOOL MyCreateWindow(HINSTANCE, int);
-LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
+Game* gGame;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
 	
@@ -26,6 +22,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//Init DirectX3D 
 	DirectX3D::Get()->DirectXInit(hWnd);
+
+	//Init Game
+	gGame = Game::Get();
+	gGame->InitGame();
 
 	MSG msg;
 
@@ -42,14 +42,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		else
 		{
 			//==============Update==============//
-		
-			//==============描Update==============//
+			gGame->Update();
+			//==============Update==============//
 
-
+			
 			//==============描画==============//
 			DirectX3D::Get()->ClearScreen();
 			//To Do:
 			//ここに描画内容を
+			gGame->Draw();
+
 			DirectX3D::Get()->GetD3D_Data()->SwapChain->Present(0, 0);
 			//==============描画==============//
 		}

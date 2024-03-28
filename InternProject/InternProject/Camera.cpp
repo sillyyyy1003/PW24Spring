@@ -1,7 +1,7 @@
 ﻿#include "Camera.h"
 using namespace DirectX;
 
-void Camera::SetCameraPos(DirectX::XMFLOAT3 _pos)
+void Camera::SetCamPos(DirectX::XMFLOAT3 _pos)
 {
 	mCameraPos = _pos;
 }

@@ -27,7 +27,7 @@ private:
 
 public:
 	//カメラ位置設定
-	void SetCameraPos(DirectX::XMFLOAT3 _pos) ;
+	void SetCamPos(DirectX::XMFLOAT3 _pos) ;
 
 	void SetFocus(DirectX::XMFLOAT3 _focus);
 

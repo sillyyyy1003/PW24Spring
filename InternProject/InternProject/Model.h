@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "DirectX3D.h"
+#include "WaveFrontReader.h"
 
 //Color
 struct Color {
@@ -48,10 +49,17 @@ public:
 
 	~Model();
 
-	ModelData Create2DModel(DirectX::XMFLOAT2 _size, DirectX::XMFLOAT2 _UV);
+	static ModelData Create2DModel(DirectX::XMFLOAT2 _size, DirectX::XMINT2 split);
 
+	static ModelData Create3DModel(WaveFrontReader<uint16_t> reader);
+
+	//Need Fix
+	void Set2DModel(DirectX::XMFLOAT2 _size, DirectX::XMINT2 split);
+	
+	void SetTexture(ID3D11ShaderResourceView* texture);
+	/*
 	ModelData Load3DModel(const wchar_t* fileName);
 
 	ID3D11ShaderResourceView* LoadTexture(const wchar_t* fileName);
-
+	*/
 };

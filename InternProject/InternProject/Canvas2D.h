@@ -15,14 +15,10 @@ private:
 	DirectX::XMFLOAT3 mScale = { 1.0f,1.0f,1.0f };//スケール
 	DirectX::XMFLOAT4 mMaterialDiffuse = { 1.0f,1.0f,1.0f,1.0f };//Material Color
 
-	//モデル
 	Model* pModel = {};
-
-	Camera* pCamera = {};
-
 	Animation* pAnimation = {};
 
-	
+	bool isLight = false;
 
 private:
 
@@ -35,17 +31,21 @@ public:
 
 	~Canvas2D();
 
-	//オブジェクト設定
-	void InitCanvas();
+	void SetPos(DirectX::XMFLOAT3 pos) { mPos = pos; };
 
-	//
+	//オブジェクト設定
+	void InitCanvas(DirectX::XMFLOAT2 _size,DirectX::XMINT2 _split,ID3D11ShaderResourceView* _assets);
+
 	virtual void Update();
 
 	//描画
 	virtual void Draw();
 
+	//光
+	bool GetisLight() { return isLight; };
+	void SetisLight(bool isLight) { this->isLight = isLight; };
 
-
+	Animation* GetAnimation() { return pAnimation; };
 
 };
 

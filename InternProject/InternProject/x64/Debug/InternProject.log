@@ -1,17 +1,2 @@
-﻿  DirectX3D.cpp
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(209,28): warning C4244: “=”: 从“UINT”转换到“FLOAT”，可能丢失数据
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(210,29): warning C4244: “=”: 从“UINT”转换到“FLOAT”，可能丢失数据
-  Model.cpp
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Model.cpp(99,47): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Model.cpp(99,25): warning C4267: “初始化”: 从“size_t”转换到“const int”，可能丢失数据
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Model.cpp(132,37): warning C4267: “=”: 从“size_t”转换到“UINT”，可能丢失数据
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Model.cpp(146,41): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  正在生成代码...
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(202,1): warning C4715: “DirectX3D::CreateShader”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(170,1): warning C4715: “DirectX3D::CreateDepthStencil”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(234,1): warning C4715: “DirectX3D::CreateSampler”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(95,1): warning C4715: “DirectX3D::CreateDevice”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(257,1): warning C4715: “DirectX3D::CreateBuffer”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(126,1): warning C4715: “DirectX3D::CreateRenderTarget”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(308,1): warning C4715: “DirectX3D::CreateBlendState”: 不是所有的控件路径都返回值
+﻿  Canvas2D.cpp
   InternProject.vcxproj -> C:\Users\58472\Desktop\24_Intern\InternProject\x64\Debug\InternProject.exe
