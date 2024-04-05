@@ -3,8 +3,8 @@
 
 class Camera;
 class Canvas2D;
-class AssetManager;
-
+class ModelManager;
+class KInput;
 class Game
 {
 private:
@@ -12,16 +12,21 @@ private:
 	~Game() {};
 
 private:
+
 	//Tool 
-	AssetManager* mAssetManager;
+	ModelManager* mAssetManager;
+	//KInput* mInput;
 
 	//Camera
 	Camera* mMainCamera;
 	Camera* mCamera2D;
 	Camera* mCamera3D;
 
+	
+
 	//GameObject
 	Canvas2D* mTest;
+
 
 public:
 
@@ -31,6 +36,7 @@ public:
 	Camera* GetCamera3D() { return mCamera3D; }
 	void SetMainCamera(Camera* _camera) { mMainCamera = _camera; };
 
+	//初期化
 	void InitGame();
 
 	//更新

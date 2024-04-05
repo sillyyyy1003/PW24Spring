@@ -31,7 +31,8 @@ public:
 
 	~Canvas2D();
 
-	void SetPos(DirectX::XMFLOAT3 pos) { mPos = pos; };
+	DirectX::XMFLOAT3 GetPos() { return mPos; };
+	void SetPos(float x, float y, float z);
 
 	//オブジェクト設定
 	void InitCanvas(DirectX::XMFLOAT2 _size,DirectX::XMINT2 _split,ID3D11ShaderResourceView* _assets);

@@ -2,6 +2,7 @@
 #include "WinMain.h"
 #include "DirectX3D.h"
 #include "Game.h"
+#include "KInput.h"
 
 #define MAX_LOADSTRING 128
 
@@ -9,6 +10,7 @@
 HINSTANCE hInstance;
 HWND hWnd;
 Game* gGame;
+Time gTime;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
 	
@@ -20,12 +22,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return FALSE;
 	}
 
+	//FPS COUNTER(For Debug)
+	int fpsCounter = 0;
+	long long oldTick = GetTickCount64();//現在時間を保存
+	long long nowTick = oldTick; // 現在時間取得用
+
 	//Init DirectX3D 
 	DirectX3D::Get()->DirectXInit(hWnd);
 
 	//Init Game
 	gGame = Game::Get();
 	gGame->InitGame();
+
+	//Init Timer
+	gTime.InitTime(60);//Set fps rate as 60
+
+	KInput::Get()->Initialize(hWnd, hInstance);
 
 	MSG msg;
 
@@ -41,19 +53,47 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else
 		{
-			//==============Update==============//
-			gGame->Update();
-			//==============Update==============//
+			gTime.GetTimeCount();
 
-			
-			//==============描画==============//
-			DirectX3D::Get()->ClearScreen();
-			//To Do:
-			//ここに描画内容を
-			gGame->Draw();
+			if (gTime.isCountRight()) {
 
-			DirectX3D::Get()->GetD3D_Data()->SwapChain->Present(0, 0);
-			//==============描画==============//
+				KInput::Get()->Update();
+
+				//==============Update==============//
+				gGame->Update();
+				//==============Update==============//
+
+
+				//==============描画==============//
+				DirectX3D::Get()->ClearScreen();
+				//To Do:
+				//ここに描画内容を
+				gGame->Draw();
+
+				DirectX3D::Get()->GetD3D_Data()->SwapChain->Present(0, 0);
+				//==============描画==============//
+
+
+				/*
+				* fpsCounter++; // ゲームループ実行回数をカウント＋１
+				
+				
+			}
+			//現在時間取得
+			nowTick = GetTickCount64();
+
+
+			//１秒経過したか？
+			if (nowTick >= oldTick + 1000)
+			{
+				char str[32];
+				wsprintfA(str, "FPS=%d", fpsCounter);
+				SetWindowTextA(hWnd, str);
+				fpsCounter = 0;
+				oldTick = nowTick;
+				*/
+			}
+				
 		}
 
 	}

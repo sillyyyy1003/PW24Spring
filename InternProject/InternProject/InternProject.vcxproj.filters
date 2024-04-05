@@ -25,32 +25,26 @@
     <Filter Include="Camera">
       <UniqueIdentifier>{bb54e409-88a8-4b2a-8490-8c0d8bd68b6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{6f9ba633-1b9f-4139-b7e6-eeebb7566c21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3D">
+      <UniqueIdentifier>{f2fe59dc-2e4b-4a9a-aac9-6efa14941557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{0e61fd45-4b04-4deb-97bf-3991917da9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{8814cdba-0324-418e-8019-c9d202ff8f81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\ModelManager">
+      <UniqueIdentifier>{520cff78-6e22-4e45-9fe3-aea086c2e5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{0eaa0850-2357-4155-abee-3d627a26c163}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="WinMain.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX3D.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="WaveFrontReader.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="WICTextureLoader.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="PixelShader.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexShader.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Model</Filter>
     </ClInclude>
@@ -63,23 +57,39 @@
     <ClInclude Include="Camera.h">
       <Filter>Camera</Filter>
     </ClInclude>
-    <ClInclude Include="AssetManager.h">
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveFrontReader.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="WICTextureLoader.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX3D.h">
+      <Filter>D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelShader.h">
       <Filter>!HeaderFile</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="VertexShader.h">
       <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelManager.h">
+      <Filter>Assets\ModelManager</Filter>
+    </ClInclude>
+    <ClInclude Include="WinMain.h" />
+    <ClInclude Include="KInput.h">
+      <Filter>Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WinMain.cpp">
-      <Filter>!SourceFile</Filter>
-    </ClCompile>
-    <ClCompile Include="DirectX3D.cpp">
-      <Filter>!SourceFile</Filter>
-    </ClCompile>
-    <ClCompile Include="WICTextureLoader.cpp">
-      <Filter>!SourceFile</Filter>
-    </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>Model</Filter>
     </ClCompile>
@@ -92,11 +102,21 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Camera</Filter>
     </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>!SourceFile</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>!SourceFile</Filter>
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="WICTextureLoader.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX3D.cpp">
+      <Filter>D3D</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="ModelManager.cpp">
+      <Filter>Assets\ModelManager</Filter>
+    </ClCompile>
+    <ClCompile Include="KInput.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

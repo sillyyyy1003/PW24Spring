@@ -58,6 +58,13 @@ Canvas2D::~Canvas2D()
 
 }
 
+void Canvas2D::SetPos(float x, float y, float z)
+{
+	mPos.x = x;
+	mPos.y = y;
+	mPos.z = z;
+}
+
 
 void Canvas2D::InitCanvas(DirectX::XMFLOAT2 _size, DirectX::XMINT2 _split, ID3D11ShaderResourceView* _assets)
 {
@@ -84,16 +91,14 @@ void Canvas2D::Draw()
 	ConstBuffer cb;
 	GenerateMatrix(cb);
 
-
+	//Set Data to Constant Buffer
 	DirectX3D::Get()->GetD3D_Context()->UpdateSubresource(DirectX3D::Get()->GetConstantBuffer(), 0, NULL,
 		&cb, 0, 0);
 
-	//Set DATA to ShaderFile
+	//Set data to ShaderFile
 	DirectX3D::Get()->GetD3D_Context()->IASetVertexBuffers(0, 1, &pModel->model.vertexBuffer,
 		&strides, &offsets);
-
 	DirectX3D::Get()->GetD3D_Context()->IASetIndexBuffer(pModel->model.indexBuffer, DXGI_FORMAT_R16_UINT, 0);
-
 	DirectX3D::Get()->GetD3D_Context()->PSSetShaderResources(0, 1, &pModel->model.texture);
 
 	//Draw

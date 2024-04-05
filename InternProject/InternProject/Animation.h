@@ -68,6 +68,7 @@ public:
 	bool GetPlaying() { return isPlaying; };
 
 	//横何番目を設定する
+	DirectX::XMINT2 GetFrame() { return mFrame; };
 	void SetFrameX(int _frameX);
 
 	//縦何番目を設定する->AnimePattern

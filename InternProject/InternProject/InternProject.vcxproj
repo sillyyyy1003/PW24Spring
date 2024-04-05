@@ -128,7 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
-    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="KInput.h" />
+    <ClInclude Include="ModelManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas2D.h" />
     <ClInclude Include="DirectX3D.h" />
@@ -144,7 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="KInput.cpp" />
+    <ClCompile Include="ModelManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas2D.cpp" />
     <ClCompile Include="DirectX3D.cpp" />

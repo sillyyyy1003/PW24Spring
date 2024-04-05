@@ -1,7 +1,7 @@
 ﻿#include "Model.h"
 #include "DirectX3D.h"
 #include "WaveFrontReader.h"
-#include "AssetManager.h"
+#include "ModelManager.h"
 
 
 Model::~Model()
@@ -139,7 +139,7 @@ ModelData Model::Create3DModel(WaveFrontReader<uint16_t> reader)
     wcscpy_s(textureName, L"Assets/");
     wcscat_s(textureName, reader.materials[1].strTexture);
     //model.texture = LoadTexture(textureName);
-    model.texture = AssetManager::LoadTexture(textureName);
+    model.texture = ModelManager::LoadTexture(textureName);
 
     return model;
 }
