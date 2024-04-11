@@ -6,8 +6,11 @@
 class ModelManager
 {
 public:
-
+    //2D
     ID3D11ShaderResourceView* test;
+
+    //3D
+    ModelData testModel;
 
 public:
 
@@ -16,10 +19,6 @@ public:
     ~ModelManager();
 
     void InitAsset();
-
-    WaveFrontReader<uint16_t> Load3DModel(const wchar_t* fileName);
-
-    static ID3D11ShaderResourceView* LoadTexture(const wchar_t* fileName);
 
 };
 

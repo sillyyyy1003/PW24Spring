@@ -2,9 +2,11 @@ C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Animation.cpp;C:\Us
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\KInput.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\KInput.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\ModelManager.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\ModelManager.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Camera.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Camera.obj
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Canvas2D.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Canvas2D.obj
+C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Sprite2D.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Sprite2D.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\DirectX3D.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Game.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Game.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Model.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Model.obj
+C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Object.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Object.obj
+C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\Scene.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\Scene.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\WICTextureLoader.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\WICTextureLoader.obj
 C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\WinMain.cpp;C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\x64\Debug\WinMain.obj

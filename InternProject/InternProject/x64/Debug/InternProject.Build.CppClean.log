@@ -2,12 +2,15 @@ c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\vc143.pdb
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\vc143.idb
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\winmain.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\wictextureloader.obj
+c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\scene.obj
+c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\object.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\model.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\game.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\directx3d.obj
-c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\canvas2d.obj
+c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\sprite2d.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\camera.obj
-c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\assetmanager.obj
+c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\modelmanager.obj
+c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\kinput.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\animation.obj
 c:\users\58472\desktop\24_intern\internproject\internproject\vertexshader.h
 c:\users\58472\desktop\24_intern\internproject\x64\debug\vertexshader.cso
@@ -16,7 +19,6 @@ c:\users\58472\desktop\24_intern\internproject\x64\debug\pixelshader.cso
 c:\users\58472\desktop\24_intern\internproject\x64\debug\internproject.exe
 c:\users\58472\desktop\24_intern\internproject\x64\debug\internproject.pdb
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\internproject.ilk
-c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\canvas2d.obj.enc
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\internproject.tlog\cl.command.1.tlog
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\internproject.tlog\cl.items.tlog
 c:\users\58472\desktop\24_intern\internproject\internproject\x64\debug\internproject.tlog\cl.read.1.tlog

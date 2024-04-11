@@ -1,5 +1,4 @@
 #include "KInput.h"
-
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 
@@ -139,7 +138,7 @@ POINT KInput::GetMouseMove()
 }
 
 
-float KInput::GetAxis(std::string _axisName)
+const float KInput::GetAxis(std::string _axisName)
 {
 	float step = 0.05f;//increase step
 
@@ -215,7 +214,9 @@ float KInput::GetAxis(std::string _axisName)
 	return value;
 }
 
-float KInput::GetAxisRaw(std::string _axisName)
+
+
+const float KInput::GetAxisRaw(std::string _axisName)
 {
 	if (_axisName == "Vertical")
 	{

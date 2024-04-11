@@ -28,17 +28,25 @@ private:
 public:
 	//カメラ位置設定
 	void SetCamPos(DirectX::XMFLOAT3 _pos) ;
+	const DirectX::XMFLOAT3 GetCamPos() { return mCameraPos; };
 
+	//注視点設定
 	void SetFocus(DirectX::XMFLOAT3 _focus);
+	const DirectX::XMFLOAT3 GetFocus() { return mFocusPos; };
 
+	//カメラの上方向設定
 	void SetUpDir(DirectX::XMFLOAT3 _up);
+	const DirectX::XMFLOAT3 GetUpDir() { return mUpDir; };
 
+	//投影行列作成と取得
 	DirectX::XMMATRIX GetMatrixProj();
 
 	void Update();
 
+	//投影モード設定
 	void SetProjMode(PROJ_MODE _mode) { mProjMode = _mode; };
 
+	//カメラ行列
 	DirectX::XMMATRIX GetMatrixView() { return mMatrixView; };
 
 };

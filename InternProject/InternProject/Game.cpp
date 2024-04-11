@@ -1,12 +1,17 @@
-﻿#include "Game.h"
-#include "Camera.h"
-#include "ModelManager.h"
-#include "Canvas2D.h"
-#include "KInput.h"
-#include "Animation.h"
-#include "WinMain.h"
+﻿#include "GameFrame.h"
 
 extern Time gTime;
+
+Game::~Game()
+{
+	delete mAssetManager;
+	delete mCamera2D;
+	delete mCamera3D;
+	
+	//delete mMainCamera; //リリースの必要がない
+
+	delete mTestObj;
+}
 
 void Game::InitGame()
 {
@@ -19,51 +24,72 @@ void Game::InitGame()
 	mCamera3D = new Camera();
 	//Set Camera
 	mCamera2D->SetProjMode(Camera::_2D);
-	mCamera3D->SetProjMode(Camera::_3D);
 	mCamera2D->SetCamPos({ 0,0,-1 });
 	mCamera2D->SetFocus({ 0,0,1 });
 	mCamera2D->Update();//Generate MatrixView
+
+	mCamera3D->SetProjMode(Camera::_3D);
+	mCamera3D->SetCamPos({ 0,2,-2 });
+	mCamera3D->SetFocus({ 0,-1,1 });
+	mCamera3D->Update();
 
 	//Set Main Camera
 	SetMainCamera(mCamera3D);
 
 	//Init GameObject
-	mTest = new Canvas2D();
-	mTest->InitCanvas(DirectX::XMFLOAT2(1, 1.5), DirectX::XMINT2(12,8), mAssetManager->test);
-	mTest->SetPos(0.f, 0.f, 0.1f);
-
-
+	mTestObj = new Object;
+	mTestObj->SetModel(mAssetManager->testModel);
+	mTestObj->mLightDir = mCamera3D->GetCamPos();
 
 }
 
 void Game::Update()
 {
-
-	if (KInput::Get()->GetKeyTrigger(DIK_RIGHTARROW)) {
-		int frameX = mTest->GetAnimation()->GetFrame().x;
-		frameX++;
-		frameX = min(frameX, 7);
-		mTest->GetAnimation()->SetFrameX(frameX);
+	if (KInput::Get()->GetKeyPress(DIK_UPARROW))
+	{
+		DirectX::XMFLOAT3 scale = mTestObj->GetScale();
+		scale.x += 0.01f;
+		scale.y += 0.01f;
+		scale.z += 0.01f;
+		mTestObj->SetScale(scale);
 	}
 
-	if (KInput::Get()->GetKeyTrigger(DIK_LEFTARROW)) {
-		int frameX = mTest->GetAnimation()->GetFrame().x;
-		frameX--;
-		frameX = max(frameX, 0);
-		mTest->GetAnimation()->SetFrameX(frameX);
+	if (KInput::Get()->GetKeyPress(DIK_DOWNARROW))
+	{
+		DirectX::XMFLOAT3 scale = mTestObj->GetScale();
+		scale.x -= 0.01f;
+		scale.y -= 0.01f;
+		scale.z -= 0.01f;
+		mTestObj->SetScale(scale);
 	}
 
-	float h = KInput::Get()->GetAxisRaw("Vertical") * 3.f * gTime.deltaTime;
-	float posY = mTest->GetPos().y;
-	posY += h;
 
-	mTest->SetPos(0, posY, 0.1);
+	if (KInput::Get()->GetKeyPress(DIK_LEFTARROW))
+	{
+		DirectX::XMFLOAT3 rotate = mTestObj->GetRotate();
+		rotate.y -= 10.f;
+		mTestObj->SetRotate(rotate);
+	}
 
-	mTest->Update();
+	if (KInput::Get()->GetKeyPress(DIK_RIGHTARROW))
+	{
+		DirectX::XMFLOAT3 rotate = mTestObj->GetRotate();
+		rotate.y += 10.f;
+		mTestObj->SetRotate(rotate);
+	}
+
+
+
+	mTestObj->Update();
 }
 
 void Game::Draw()
 {
-	mTest->Draw();
+	DirectX3D::Get()->ClearScreen();
+	//ここに描画関数
 	
+	mTestObj->Draw();
+
+	//
+	DirectX3D::Get()->GetD3D_Data()->SwapChain->Present(0, 0);
 }

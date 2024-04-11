@@ -2,14 +2,16 @@
 
 
 class Camera;
-class Canvas2D;
+class Sprite2D;
 class ModelManager;
 class KInput;
+class Object;
+
 class Game
 {
 private:
 	Game() {};
-	~Game() {};
+	~Game();
 
 private:
 
@@ -22,10 +24,8 @@ private:
 	Camera* mCamera2D;
 	Camera* mCamera3D;
 
-	
-
 	//GameObject
-	Canvas2D* mTest;
+	Object* mTestObj;
 
 
 public:

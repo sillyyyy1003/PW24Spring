@@ -51,7 +51,7 @@
     <ClInclude Include="Animation.h">
       <Filter>Canvas2D\Animation2D</Filter>
     </ClInclude>
-    <ClInclude Include="Canvas2D.h">
+    <ClInclude Include="Sprite2D.h">
       <Filter>Canvas2D</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
@@ -88,6 +88,18 @@
     <ClInclude Include="KInput.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFrame.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXUti.h">
+      <Filter>!HeaderFile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Model.cpp">
@@ -96,7 +108,7 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Canvas2D\Animation2D</Filter>
     </ClCompile>
-    <ClCompile Include="Canvas2D.cpp">
+    <ClCompile Include="Sprite2D.cpp">
       <Filter>Canvas2D</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
@@ -117,6 +129,12 @@
     </ClCompile>
     <ClCompile Include="KInput.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>!SourceFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>!SourceFile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,6 @@
 //グローバル変数
 HINSTANCE hInstance;
 HWND hWnd;
-Game* gGame;
 Time gTime;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
@@ -31,8 +30,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DirectX3D::Get()->DirectXInit(hWnd);
 
 	//Init Game
-	gGame = Game::Get();
-	gGame->InitGame();
+	Game::Get();
+	Game::Get()->InitGame();
 
 	//Init Timer
 	gTime.InitTime(60);//Set fps rate as 60
@@ -53,27 +52,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 		else
 		{
+			//Timer Update
 			gTime.GetTimeCount();
 
+			//sleep(deltatime)
 			if (gTime.isCountRight()) {
 
+				//==============Update==============//
 				KInput::Get()->Update();
-
-				//==============Update==============//
-				gGame->Update();
+				Game::Get()->Update();
 				//==============Update==============//
 
 
 				//==============描画==============//
-				DirectX3D::Get()->ClearScreen();
-				//To Do:
-				//ここに描画内容を
-				gGame->Draw();
+				Game::Get()->Draw();
 
-				DirectX3D::Get()->GetD3D_Data()->SwapChain->Present(0, 0);
 				//==============描画==============//
 
-
+				//FPS TEST
 				/*
 				* fpsCounter++; // ゲームループ実行回数をカウント＋１
 				

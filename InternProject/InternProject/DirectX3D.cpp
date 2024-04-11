@@ -310,7 +310,7 @@ BOOL DirectX3D::CreateBlendState(void)
 void DirectX3D::ClearScreen(void)
 {
     // 画面塗りつぶし色
-    float clearColor[4] = { 1.0f, 0.0f, 1.0f, 1.0f }; //red,green,blue,alpha
+    float clearColor[4] = { 0.2f,0.2f, 0.2f, 1.0f }; //red,green,blue,alpha
 
     // 描画先のキャンバスと使用する深度バッファを指定する
     pD3D->Context->OMSetRenderTargets(1, &pD3D->RenderTarget, pD3D->DepthStencilView);

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #define DIRECTINPUT_VERSION 0x0800
 #include<dinput.h>
 #include<string>
@@ -19,7 +19,7 @@ private:
 	DIMOUSESTATE2 mMouseState = {};
 	DIMOUSESTATE2 mOldMouseState = {};
 
-	float value = 0.f;//GetAxisÓÃ³öÁ¦‚
+	float value = 0.f;//GetAxisç”¨å‡ºåŠ›å€¤
 
 	KInput() {};
 
@@ -28,7 +28,7 @@ public:
 	//Getter
 	static KInput* Get();
 
-	//³õÆÚ»¯
+	//åˆæœŸåŒ–
 	void Initialize(HWND hWnd, HINSTANCE hInstance);
 
 	//
@@ -53,13 +53,13 @@ public:
 	/// Returns the value of the virtual axis identified by axisName
 	/// </summary>
 	/// <returns>The Horizontal and Vertical ranges change from 0 to +1 or -1 with increase/decrease in 0.05f steps</returns>
-	float GetAxis(std::string _axisName);
+	const float GetAxis(std::string _axisName);
 
 	/// <summary>
 	/// Returns the value of the virtual axis identified by axisName
 	/// </summary>
 	/// <returns>The Horizontal and Vertical change to 1/-1 immediately</returns>
-	float GetAxisRaw(std::string _axisName);
+	const float GetAxisRaw(std::string _axisName);
 
 };
 

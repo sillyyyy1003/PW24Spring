@@ -15,7 +15,6 @@ struct VS_OUT
 //cbuffer:defination of Constant Buffer in hlsl
 cbuffer ConstBuffer : register(b0)
 {
-	//顶点着色器负责处理世界坐标，顶点法线（即每个顶点的朝向），以及纹理坐标
 	matrix matrixWorld;
 	matrix matrixNormal;
 	matrix matrixUV;

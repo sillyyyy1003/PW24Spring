@@ -1,6 +1,6 @@
 struct PS_IN
 {
-	float4 pos : SV_POSITION;
+	float4 pos : SV_Position;
 	float2 tex : TEXCOORD;
 	float4 normal : NORMAL;
 };
@@ -14,13 +14,10 @@ cbuffer ConstBuffer : register(b0)
 	matrix matrixNormal;
 	matrix matrixUV;
 	float4 materialDiffuse;
-	float3 lightDir;
-	float4 ambientLight;
-	
-	
-	bool isLight;
-}
 
+	unsigned int isLight;
+	int dummy2, dummy3, dummy4;
+}
 float4 ps_main(PS_IN input) : SV_Target
 {
 	if (!isLight)
@@ -30,9 +27,11 @@ float4 ps_main(PS_IN input) : SV_Target
 	}
 	
 	//①光源からの影響を計算
-	float3 lightVector = lightDir;
+	//float3 lightVector = lightDir;
+	float3 lightVector = float3(1, -1, 1);
 	float3 pixelNormal = input.normal.xyz;
-	float4 amLight = ambientLight;
+	//float4 amLight = ambientLight;
+	float4 ambientLight = float4(0.1f, 0.1f, 0.1f, 0.0f);
 	
 	//正規化
 	lightVector = normalize(lightVector);
