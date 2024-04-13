@@ -90,7 +90,7 @@ ModelData Model::Create3DModel(const wchar_t* fileName)
     //読み込み失敗のファイル名変換
     char nameStr[128];
     char outStr[128];
-    wsprintfA(outStr, "%sを読み込み失敗", nameStr);
+    wsprintfA(outStr, "fail to load", nameStr);
 
     if (FAILED(hr))
     {

@@ -1,4 +1,4 @@
-#include "KInput.h"
+ï»¿#include "KInput.h"
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 
@@ -151,7 +151,6 @@ const float KInput::GetAxis(std::string _axisName)
 			value = 0;
 		}
 
-		//Í¬•r¤ËÑº¤·¤¿¤é
 		if (KInput::Get()->GetKeyPress(DIK_UPARROW) && KInput::Get()->GetKeyPress(DIK_DOWNARROW))
 		{
 			value = 0;
@@ -182,7 +181,7 @@ const float KInput::GetAxis(std::string _axisName)
 		{
 			value = 0;
 		}
-		//Í¬•r¤ËÑº¤·¤¿¤é
+	
 		if (KInput::Get()->GetKeyPress(DIK_LEFTARROW) &&
 			KInput::Get()->GetKeyPress(DIK_RIGHTARROW))
 		{
@@ -226,7 +225,7 @@ const float KInput::GetAxisRaw(std::string _axisName)
 			value = 0;
 		}
 
-		//Í¬•r¤ËÑº¤·¤¿¤é
+
 		if (KInput::Get()->GetKeyPress(DIK_UPARROW) && KInput::Get()->GetKeyPress(DIK_DOWNARROW))
 		{
 			value = 0;
@@ -250,7 +249,7 @@ const float KInput::GetAxisRaw(std::string _axisName)
 			value = 0;
 		}
 
-		//Í¬•r¤ËÑº¤·¤¿¤é
+
 		if (KInput::Get()->GetKeyPress(DIK_LEFTARROW) &&
 			KInput::Get()->GetKeyPress(DIK_RIGHTARROW))
 		{

@@ -1,11 +1,2 @@
-﻿  compilation header save succeeded; see C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\PixelShader.h
-  compilation object save succeeded; see C:\Users\58472\Desktop\24_Intern\InternProject\x64\Debug\PixelShader.cso
-  DirectX3D.cpp
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(95,1): warning C4715: “DirectX3D::CreateDevice”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(126,1): warning C4715: “DirectX3D::CreateRenderTarget”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(170,1): warning C4715: “DirectX3D::CreateDepthStencil”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(202,1): warning C4715: “DirectX3D::CreateShader”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(257,1): warning C4715: “DirectX3D::CreateBuffer”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(234,1): warning C4715: “DirectX3D::CreateSampler”: 不是所有的控件路径都返回值
-C:\Users\58472\Desktop\24_Intern\InternProject\InternProject\DirectX3D.cpp(308,1): warning C4715: “DirectX3D::CreateBlendState”: 不是所有的控件路径都返回值
-  InternProject.vcxproj -> C:\Users\58472\Desktop\24_Intern\InternProject\x64\Debug\InternProject.exe
+﻿  ModelManager.cpp
+  InternProject.vcxproj -> C:\Users\58472\Desktop\2024_SpringIntern\InternProject\x64\Debug\InternProject.exe

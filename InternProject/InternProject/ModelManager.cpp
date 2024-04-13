@@ -9,7 +9,7 @@ ModelManager::ModelManager()
     プラスα：もっとやりやすい読み込み方法をかんがえよう
     */
     test = Model::LoadTexture(L"Assets/Img/ASCIILib.png");
-    testModel = Model::Create3DModel(L"Assets/cube.obj");
+    testModel = Model::Create3DModel(L"Assets/Cube.obj");
 
 }
 
