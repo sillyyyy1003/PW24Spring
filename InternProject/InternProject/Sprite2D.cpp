@@ -48,7 +48,7 @@ void Sprite2D::GenerateMatrix(ConstBuffer& cb)
 Sprite2D::Sprite2D()
 {
 	pModel = new Model();
-	pAnimation = new Animation();
+	pAnimation = new Anime();
 }
 
 Sprite2D::~Sprite2D()
@@ -80,7 +80,7 @@ void Sprite2D::InitCanvas(DirectX::XMFLOAT2 _size, DirectX::XMINT2 _split, ID3D1
 	pModel->SetTexture(_assets);
 
 	//SetAnimation
-	pAnimation->InitAnime(_split);
+	pAnimation->InitAnime(_split,);
 
 }
 

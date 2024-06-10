@@ -1,22 +1,31 @@
 ﻿#include "Animation.h"
 
-Animation::Animation()
+Anime::Animation::Animation()
 {
 
 }
 
-Animation::~Animation()
+Anime::Animation::~Animation()
 {
 	mAnimeTable.clear();
 }
 
-void Animation::InitAnime(DirectX::XMINT2 _split)
+void Anime::Animation::InitAnime(DirectX::XMINT2 _split, AnimePattern _pattern)
 {
-	//SetSplit
+	//Set split
 	mSplit = _split;
+	//Set anime pattern
+	mPattern = _pattern;
 
-	//SetAnimeTable
+	//Create Anime Table
 	int frameNum = _split.x;
+	switch(mPattern)
+	{
+	case Null:
+		MessageBoxA(NULL, "AnimePattern is null", "Error", MB_OK | MB_ICONERROR);
+		return;
+		break;
+	}
 	for (int i = 0; i < _split.x; i++) {
 		mAnimeTable.push_back(i);
 	}
@@ -26,7 +35,7 @@ void Animation::InitAnime(DirectX::XMINT2 _split)
 
 }
 
-void Animation::Update()
+void Anime::Animation::Update()
 {
 	if (!isPlaying) {
 		UpdateUV();//In case if need to Change UV
@@ -34,17 +43,17 @@ void Animation::Update()
 	}
 
 	UpdateIsPlaying();
+
 	UpdateUV();
 }
 
-void Animation::UpdateIsPlaying()
+void Anime::Animation::UpdateIsPlaying()
 {
 	int animeId = 0;
 
 	if (mAnimeTable.size() == 0) {
-		//Output DebugLog
-		//メッセージボックスで表示
-		MessageBoxA(NULL, "AnimeTable is null", "エラー", MB_OK | MB_ICONERROR);
+		//DebugLog
+		MessageBoxA(NULL, "AnimeTable is null", "Error", MB_OK | MB_ICONERROR);
 		return;
 	}
 
@@ -65,24 +74,40 @@ void Animation::UpdateIsPlaying()
 	}
 
 	//表示させるコマのUVを計算
-	mFrame.x = animeId % mSplit.x;
-	//if there is only one pattern and the picture is not in line
-	//mFrame.y = animeId / mSplit.x;
+	switch (mPattern)
+	{
+	case Null:
+		//DebugLog:
+		MessageBoxA(NULL, "AnimePattern is null", "Error", MB_OK | MB_ICONERROR);
+		return;
+		break;
+	case SinglePattern:
+		mFrame.x = animeId % mSplit.x;
+		mFrame.y = animeId / mSplit.y;
+		break;
+	case MultiPattern:
+		//y
+		mFrame.x = animeId % mSplit.x;
+		break;
+	}
+
+	//mFrame.x = animeId % mSplit.x;
+
 
 }
 
-void Animation::UpdateUV()
+void Anime::Animation::UpdateUV()
 {
 	mOffsetUV.x = 1.0f / mSplit.x * mFrame.x;
 	mOffsetUV.y = 1.0f / mSplit.y * mFrame.y;
 }
 
-void Animation::SetFrameX(int _frameX)
+void Anime::Animation::SetFrameX(int _frameX)
 {
 	mFrame.x = _frameX;
 }
 
-void Animation::SetFrameY(int _frameY)
+void Anime::Animation::SetFrameY(int _frameY)
 {
 	mFrame.y = _frameY;
 }

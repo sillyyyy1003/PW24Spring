@@ -1,8 +1,12 @@
 ﻿#pragma once
 #include "Model.h"
 
+namespace Anime
+{
+	class Animation;
+}
+
 class Camera;
-class Animation;
 
 //2D:Sprite
 class Sprite2D
@@ -16,7 +20,7 @@ private:
 	DirectX::XMFLOAT4 mMaterialDiffuse = { 1.0f,1.0f,1.0f,1.0f };//Material Color
 
 	Model* pModel = {};
-	Animation* pAnimation = {};
+	Anime::Animation* pAnimation = {};
 
 	bool isLight = false;
 
@@ -54,7 +58,7 @@ public:
 	void SetMaterialDiffuse(Color sRGB);
 	const DirectX::XMFLOAT4 GetMaterialDiffuse() { return mMaterialDiffuse; };
 
-	Animation* GetAnimation() { return pAnimation; };
+	
 
 };
 
