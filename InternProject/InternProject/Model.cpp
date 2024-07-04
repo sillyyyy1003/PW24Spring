@@ -1,24 +1,47 @@
-﻿#include "Model.h"
+﻿// ReSharper disable All
+#include "Model.h"
+#include <codecvt>
+#include "DebugLog.h"
 #include "DirectX3D.h"
 #include "WaveFrontReader.h"
 #include "WICTextureLoader.h"
 
 
+Model::Model()
+{
+}
+
 Model::~Model()
 {
-    SAFE_RELEASE(model.vertexBuffer);
+    /*SAFE_RELEASE(model.vertexBuffer);
     SAFE_RELEASE(model.texture);
-    SAFE_RELEASE(model.indexBuffer);
+    SAFE_RELEASE(model.indexBuffer);*/
 
 }
 
-ModelData Model::Create2DModel(DirectX::XMFLOAT2 _size, DirectX::XMINT2 split)
+ModelData Model::Create2DModel(DirectX::XMFLOAT2 _size, DirectX::XMINT2 split, ModelSet::VerticalAlign _align)
 {
+    float left, right, top, bot, z = 0.0f;
 
-    float left = -_size.x / 2.0f;
-    float right = _size.x / 2.0f;
-    float top = _size.y / 2.0f;
-    float bot = -_size.y / 2.0f;
+    left = -_size.x / 2.0f * SCREEN_PARA;
+    right = _size.x / 2.0f * SCREEN_PARA;
+    switch (_align)
+    {
+    case ModelSet::TOP:
+        bot = -_size.y * SCREEN_PARA;
+        top = 0;
+        break;
+    case ModelSet::MIDDLE:
+        top = (_size.y / 2.0f) * SCREEN_PARA;
+        bot = -(_size.y / 2.0f) * SCREEN_PARA;
+        break;
+    case ModelSet::BOTTOM:
+        bot = 0;
+        top = (_size.y) * SCREEN_PARA;
+        break;
+    default:
+        break;
+    }
 
     const float u = 1.0f / split.x;
     const float v = 1.0f / split.y;
@@ -35,16 +58,17 @@ ModelData Model::Create2DModel(DirectX::XMFLOAT2 _size, DirectX::XMINT2 split)
 
     };
 
+
     D3D11_BUFFER_DESC bufferDesc;
-    bufferDesc.ByteWidth = sizeof(vertexList);// 確保するバッファサイズを指定
+    bufferDesc.ByteWidth = sizeof(vertexList);
     bufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;// 頂点バッファ作成を指定
+    bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
     bufferDesc.CPUAccessFlags = 0;
     bufferDesc.MiscFlags = 0;
     bufferDesc.StructureByteStride = 0;
 
     D3D11_SUBRESOURCE_DATA subResourceData;
-    subResourceData.pSysMem = vertexList;// VRAMに送るデータを指定
+    subResourceData.pSysMem = vertexList;
     subResourceData.SysMemPitch = 0;
     subResourceData.SysMemSlicePitch = 0;
 
@@ -87,14 +111,16 @@ ModelData Model::Create3DModel(const wchar_t* fileName)
     HRESULT hr;
     hr = reader.Load(fileName, true);
 
-    //読み込み失敗のファイル名変換
-    char nameStr[128];
-    char outStr[128];
-    wsprintfA(outStr, "fail to load", nameStr);
+    
+    //wchar->string
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    std::string nameStr = converter.to_bytes(fileName);
+    std::string outStr = "Failed To Read";
+    outStr = outStr + nameStr;
 
     if (FAILED(hr))
     {
-        MessageBoxA(NULL, outStr, "ERROR", MB_OK | MB_ICONERROR);
+        DebugLog::Log(outStr);
         return ModelData();
     }
 
@@ -131,7 +157,7 @@ ModelData Model::Create3DModel(const wchar_t* fileName)
     DirectX3D::Get()->GetD3D_Device()->CreateBuffer(&bufferDesc, &subResourceData, &model.vertexBuffer);
 
     D3D11_BUFFER_DESC ibDesc;
-    ibDesc.ByteWidth = sizeof(WORD) * reader.indices.size();
+    ibDesc.ByteWidth = (UINT)(sizeof(WORD) * reader.indices.size());
     ibDesc.Usage = D3D11_USAGE_DEFAULT;
     ibDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
     ibDesc.CPUAccessFlags = 0;
@@ -158,25 +184,28 @@ ModelData Model::Create3DModel(const wchar_t* fileName)
     return model;
 }
 
-ID3D11ShaderResourceView* Model::LoadTexture(const wchar_t* fileName)
+ID3D11ShaderResourceView* Model::LoadTexture(const wchar_t* _fileName)
 {
     ID3D11ShaderResourceView* texture;
     HRESULT hr;
 
-    hr = DirectX::CreateWICTextureFromFile(DirectX3D::Get()->GetD3D_Device(), fileName, NULL, &texture);
+    hr = DirectX::CreateWICTextureFromFile(DirectX3D::Get()->GetD3D_Device(), _fileName, NULL, &texture);
 
-    char nameStr[256];
-    char outStr[256];
-    wsprintfA(outStr, "Failed to Read %s", nameStr);
+    //wchar->string
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+    std::string nameStr = converter.to_bytes(_fileName);
+    std::string outStr = "Failed To Read";
+    outStr = outStr + nameStr;
 
     if (FAILED(hr))
     {
-        MessageBoxA(NULL, outStr, "ERROR", MB_OK | MB_ICONERROR);
+		DebugLog::Log(outStr);
         return nullptr;
     }
 
     return texture;
 }
+
 
 void Model::SetTexture(ID3D11ShaderResourceView* texture)
 {

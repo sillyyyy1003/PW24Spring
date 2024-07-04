@@ -21,39 +21,37 @@ cbuffer ConstBuffer : register(b0)
 float4 ps_main(PS_IN input) : SV_Target
 {
 	if (!isLight)
-	{
-		float4 color = myTexture.Sample(mySampler, input.tex);
-		return color * materialDiffuse;
-	}
+    {
+        float4 color = myTexture.Sample(mySampler, input.tex);
+        float4 ambientFactor = float4(0.6, 0.6, 0.6, 1.0f);
+        //float4 ambientFactor = float4(1.f, 1.f, 1.f,1.0f);
+        return color * materialDiffuse * ambientFactor;
+    }
+
+	//Set Normal
+ //   float3 pos = input.pos.xyz;
+ //   float3 normal = float3(pos.x, pos.y,-1.f);
+
+	////Set Light Position in front of the object
+ //   float3 lightPos = float3(pos.x,pos.y , pos.z - 0.2f);
+ //   float3 toLightVec = lightPos - pos;
+ //   float toLightLength = length(toLightVec);
+
 	
-	//①光源からの影響を計算
-	//float3 lightVector = lightDir;
-	float3 lightVector = float3(1, -1, 1);
-	float3 pixelNormal = input.normal.xyz;
-	//float4 amLight = ambientLight;
-	float4 ambientLight = float4(0.1f, 0.1f, 0.1f, 0.0f);
-	
-	//正規化
-	lightVector = normalize(lightVector);
-	pixelNormal = normalize(pixelNormal);
-	
-	//dot:内積->光線と表面との間の角度
-	float diffusePower = dot(lightVector, pixelNormal);
-	
-	//拡散反射光の強度を合理的な範囲内に収める
-	diffusePower = saturate(diffusePower);
-	
-	//拡散反射光の強度を 0.2f より小さくならないよう
-	diffusePower = max(diffusePower, 0.2f);
-	
-	float4 textureColor = myTexture.Sample(mySampler, input.tex);
-	
-	float4 pixelColor = textureColor * diffusePower;
-	pixelColor.a = textureColor.a;
-	
-	//②環境光の影響を加える
-	pixelColor = pixelColor + ambientLight;
-	
-	return pixelColor;
+	//lightPos = normalize(lightPos);
+	//normal = normalize(normal);
+ //   float diffusePower = saturate(dot(lightPos, normal));
+
+ //   float attenuation = saturate(1.0f - toLightLength / 3.f);
+ //   attenuation = pow(attenuation, 2.0f);
+ //   float4 lightAmbient = { 0.4, 0.4, 0.4, 0.4 };
+ //   lightAmbient *= diffusePower * attenuation;
+
+ //   
+ //   attenuation = pow(attenuation, 2.0f);
+    float4 color = myTexture.Sample(mySampler, input.tex);
+    color = color * materialDiffuse;
+
+	return color;
 	
 }

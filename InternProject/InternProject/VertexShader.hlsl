@@ -24,7 +24,6 @@ cbuffer ConstBuffer : register(b0)
 VS_OUT vs_main(VS_IN input )
 {
 	VS_OUT output;
-	//¥ï©`¥ë¥É×ù˜Ë
 	output.pos = mul(input.pos, matrixWorld);
 	
 	//UV

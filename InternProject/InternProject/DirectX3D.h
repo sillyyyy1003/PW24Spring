@@ -10,6 +10,7 @@
 //縦横比
 #define RATIO_H		(9.0f)		//アスペクト比(縦)
 #define RATIO_W		(16.0f)		//アスペクト比(横)
+#define SCREEN_PARA	(1/76.8f)	//Make picture size simple to the real size
 
 //Direct3D関連変数をまとめる構造体
 struct D3D_DATA
@@ -38,8 +39,7 @@ private:
 	DirectX3D() {};
 
 	D3D_DATA* pD3D = nullptr;
-
-	ID3D11Buffer* ConstantBuffer;
+	ID3D11Buffer* ConstantBuffer = nullptr;
 
 
 
@@ -51,6 +51,10 @@ public:
 	ID3D11Device* GetD3D_Device() { return pD3D->Device; };
 	ID3D11DeviceContext* GetD3D_Context() { return pD3D->Context; };
 	ID3D11Buffer* GetConstantBuffer() { return ConstantBuffer; };
+
+	ID3D11BlendState* GetBlendAlpha() { return pD3D->BlendAlpha; };
+	ID3D11BlendState* GetBlendAdd() { return pD3D->BlendAdd; };
+	ID3D11BlendState* GetBlendMultiply() { return pD3D->BlendMultiply; };
 
 	//DirectX初期化
 	void DirectXInit(HWND hWnd);
@@ -84,6 +88,8 @@ public:
 
 	//メモリ解放処理
 	void DirectXRelease(void);
+
+	void SetBlendState(ID3D11BlendState* _blendState);
 
 };
 

@@ -43,6 +43,51 @@
     <Filter Include="Input">
       <UniqueIdentifier>{0eaa0850-2357-4155-abee-3d627a26c163}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DebugManager">
+      <UniqueIdentifier>{8be51277-3fb0-4f03-a343-2f7f3a4ede7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseSprite">
+      <UniqueIdentifier>{c1fa4bf8-805a-412a-a968-c68a1dc72e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseObject">
+      <UniqueIdentifier>{53e8ebde-780b-4d6f-bfdc-20794670e49c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColliderFile">
+      <UniqueIdentifier>{d7dbd313-88e3-4e00-8f65-4dccfa2d4f10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{e8905d96-ef25-40dc-9a85-76b18a28b368}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{b6064b87-89ab-4985-881c-62166817ee54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\GameObject2D">
+      <UniqueIdentifier>{385de627-1cc1-416d-8ceb-8a4117d53285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\StaticObject">
+      <UniqueIdentifier>{7edd27a8-0acb-4afc-a84b-300bcaa5b9e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\ShadowObject">
+      <UniqueIdentifier>{12021869-415f-432d-ac96-ee5e73c6dea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\LayerManager">
+      <UniqueIdentifier>{96fec681-2b02-4cbf-ad10-5ad8e9f7190e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ClearManager">
+      <UniqueIdentifier>{5ac4b2fa-83d9-46e7-9196-fd8509d9fb6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\RailManager">
+      <UniqueIdentifier>{4dfa3749-985e-4d06-ba33-24a1595f8c98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SceneManager">
+      <UniqueIdentifier>{3e1de9a3-fc24-45fb-92ed-fa24262b5e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\UI">
+      <UniqueIdentifier>{49f65491-5168-4397-abba-c1ecd0a3ea0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Result">
+      <UniqueIdentifier>{20f558c4-1b7c-4e7a-ba2f-b6a6b437d244}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model.h">
@@ -50,9 +95,6 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Canvas2D\Animation2D</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite2D.h">
-      <Filter>Canvas2D</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Camera</Filter>
@@ -88,17 +130,92 @@
     <ClInclude Include="KInput.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
-    <ClInclude Include="GameFrame.h">
-      <Filter>!HeaderFile</Filter>
-    </ClInclude>
     <ClInclude Include="DirectXUti.h">
       <Filter>!HeaderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Game\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Game\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>Game\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CanvasUI.h">
+      <Filter>Canvas2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Game\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugManager.h">
+      <Filter>DebugManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite2D.h">
+      <Filter>BaseSprite</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLog.h">
+      <Filter>DebugManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Object2D.h">
+      <Filter>BaseObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object3D.h">
+      <Filter>BaseObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerManager.h">
+      <Filter>Game\LayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>ColliderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>ColliderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollider.h">
+      <Filter>ColliderFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="RailManager.h">
+      <Filter>Game\RailManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite3D.h">
+      <Filter>BaseSprite</Filter>
+    </ClInclude>
+    <ClInclude Include="xa2.h">
+      <Filter>Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject2D.h">
+      <Filter>Object\GameObject2D</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObject.h">
+      <Filter>Object\StaticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowObject.h">
+      <Filter>Object\ShadowObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultProcess.h">
+      <Filter>Game\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultManager.h">
+      <Filter>Game\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="UiManager.h">
+      <Filter>Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFrame.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraShaker.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultAnimator.h">
+      <Filter>Game\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearManager.h">
+      <Filter>Game\ClearManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +224,6 @@
     </ClCompile>
     <ClCompile Include="Animation.cpp">
       <Filter>Canvas2D\Animation2D</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite2D.cpp">
-      <Filter>Canvas2D</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Camera</Filter>
@@ -131,10 +245,85 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>!SourceFile</Filter>
+      <Filter>Game\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>!SourceFile</Filter>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Game\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>Game\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CanvasUI.cpp">
+      <Filter>Canvas2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Game\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugManager.cpp">
+      <Filter>DebugManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite2D.cpp">
+      <Filter>BaseSprite</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLog.cpp">
+      <Filter>DebugManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Object2D.cpp">
+      <Filter>BaseObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Object3D.cpp">
+      <Filter>BaseObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerManager.cpp">
+      <Filter>Game\LayerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>ColliderFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>ColliderFile</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider.cpp">
+      <Filter>ColliderFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="RailManager.cpp">
+      <Filter>Game\RailManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite3D.cpp">
+      <Filter>BaseSprite</Filter>
+    </ClCompile>
+    <ClCompile Include="xa2.cpp">
+      <Filter>Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject2D.cpp">
+      <Filter>Object\GameObject2D</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObject.cpp">
+      <Filter>Object\StaticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowObject.cpp">
+      <Filter>Object\ShadowObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultProcess.cpp">
+      <Filter>Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultManager.cpp">
+      <Filter>Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="UiManager.cpp">
+      <Filter>Game\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraShaker.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultAnimator.cpp">
+      <Filter>Game\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearManager.cpp">
+      <Filter>Game\ClearManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -6,13 +6,25 @@
 
 #define MAX_LOADSTRING 128
 
+#pragma comment(lib, "winmm.lib")
+
 //グローバル変数
 HINSTANCE hInstance;
 HWND hWnd;
+HWND hWndDebug;
 Time gTime;
 
+BOOL CreateDebugWindow(HINSTANCE hInstance);
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow){
-	
+
+	// コンソール生成
+	AllocConsole();
+	FILE* fp;
+	// 標準出力の割り当て
+	freopen_s(&fp, "CON", "w", stdout);
+
+
 	MyRegisterClass(hInstance);
 
 	// 执行应用程序初始化:
@@ -46,9 +58,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (isAnyMessage)// 何かメッセージがあるか判定
 		{
 			DispatchMessage(&msg);
-			if (msg.message == WM_QUIT) {
-				break;
-			}
 		}
 		else
 		{
@@ -56,7 +65,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			gTime.GetTimeCount();
 
 			//sleep(deltatime)
-			if (gTime.isCountRight()) {
+			if (gTime.isCountRight())
+			{
 
 				//==============Update==============//
 				KInput::Get()->Update();
@@ -69,25 +79,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 				//==============描画==============//
 
-				//FPS TEST
-				/*
-				* fpsCounter++; // ゲームループ実行回数をカウント＋１
-				
-				
-			}
-			//現在時間取得
-			nowTick = GetTickCount64();
-
-
-			//１秒経過したか？
-			if (nowTick >= oldTick + 1000)
-			{
-				char str[32];
-				wsprintfA(str, "FPS=%d", fpsCounter);
-				SetWindowTextA(hWnd, str);
-				fpsCounter = 0;
-				oldTick = nowTick;
-				*/
+			
 			}
 				
 		}
@@ -100,6 +92,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//----------------------------//
 	// ウィンドウズの終了処理
 	//----------------------------//
+	// 標準出力クローズ
+	fclose(fp);
 	UnregisterClass(WINDOW_CLASS, hInstance);
 	return (int)msg.wParam;
 
@@ -129,9 +123,9 @@ ATOM MyRegisterClass(HINSTANCE hInstance) {
 
 BOOL MyCreateWindow(HINSTANCE _hInstance, int nCmdShow)
 {
-    hInstance = _hInstance; // 将实例句柄存储在全局变量中
+    hInstance = _hInstance; 
 
-	//スクリーンサイズを郭とク
+	//スクリーンサイズを取る
 	int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
@@ -139,7 +133,7 @@ BOOL MyCreateWindow(HINSTANCE _hInstance, int nCmdShow)
 	hWnd = CreateWindowEx(0,// 拡張ウィンドウスタイル
 		WINDOW_CLASS,// ウィンドウクラスの名前
 		WINDOW_TITLE,// ウィンドウの名前
-		WS_OVERLAPPEDWINDOW,// ウィンドウスタイル WS_POPUPWINDOW(No Frame&Title)
+		WS_POPUPWINDOW,//WS_OVERLAPPEDWINDOW,// ウィンドウスタイル WS_POPUPWINDOW(No Frame&Title)
 		CW_USEDEFAULT,// ウィンドウの左上Ｘ座標
 		CW_USEDEFAULT,// ウィンドウの左上Ｙ座標 
 		WINDOW_WIDTH,// ウィンドウの幅
@@ -169,14 +163,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 
 	case WM_CLOSE:  // xボタンが押されたら
-		DestroyWindow(hWnd);  // “WM_DESTROY”メッセージを送る
+		DestroyWindow(hWnd);  // “WmDESTROY”メッセージを送る
 		break;
 
 		// キーが押されたイベント
 	case WM_KEYDOWN:
-		if (wParam == VK_ESCAPE) { DestroyWindow(hWnd); }
+		//if (wParam == VK_ESCAPE) { DestroyWindow(hWnd); }
 		break;
-
 		// キーが離されたイベント
 	case WM_KEYUP:
 		break;
@@ -189,3 +182,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	return 0;
 }
+
+
+

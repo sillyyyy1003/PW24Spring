@@ -1,5 +1,7 @@
 ﻿#pragma once
-
+#include <d3d11.h>
+#include <cmath>
+#include <wrl/client.h>
 
 //Color
 struct Color
@@ -10,9 +12,9 @@ struct Color
 //model
 struct ModelData
 {
-	ID3D11Buffer* vertexBuffer;
-	ID3D11ShaderResourceView* texture;
-	ID3D11Buffer* indexBuffer;
+	Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> texture;
+	Microsoft::WRL::ComPtr<ID3D11Buffer> indexBuffer;
 	int	indexNum;
 
 };
@@ -24,8 +26,6 @@ struct ConstBuffer
 	DirectX::XMMATRIX matrixNormal;//法線
 	DirectX::XMMATRIX matrixUV;//uv
 	DirectX::XMFLOAT4 materialDiffuse;
-	DirectX::XMFLOAT3 eyePos;
-	float objCbPad0;
 	unsigned int isLight;
 	int dummy2, dummy3, dummy4;
 };
@@ -55,7 +55,31 @@ struct Material
 	float roughness; // 材質の粗さ
 };
 
-/*packing rule
-1、元素会被包装到float4; 2、一个元素不能被分散到两个float4中
-*/
+/// @brief Compare Float and avoid digits cancellation
+inline bool CompFloat(float a, float b) {
+	float rel_epsilon = 1e-5f;
+	float abs_epsilon = 1e-6f;
+	float diff = std::fabs(a - b);
+	if (diff <= abs_epsilon) {
+		return true;
+	}
+	return diff <= rel_epsilon * std::fmax(std::fabs(a), std::fabs(b));
+};
+
+/// @brief 
+/// @return
+/// -1 smaller
+///	1  bigger
+///	0  equal
+inline int CompResult(float a, float b)
+{
+	if (!CompFloat(a, b)) { return (a < b) ? -1 : 1; }
+	else{ return 0; }
+};
+
+inline DirectX::XMFLOAT3 operator*(const DirectX::XMFLOAT3& lhs, const DirectX::XMFLOAT3& rhs)
+{
+	return DirectX::XMFLOAT3(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+}
+
 

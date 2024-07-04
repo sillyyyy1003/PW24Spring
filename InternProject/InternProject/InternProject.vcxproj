@@ -105,11 +105,15 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -129,49 +133,102 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="BoxCollider.h" />
+    <ClInclude Include="CameraShaker.h" />
+    <ClInclude Include="CanvasUI.h" />
+    <ClInclude Include="ClearManager.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="DebugLog.h" />
+    <ClInclude Include="DebugManager.h" />
     <ClInclude Include="DirectXUti.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Fade.h" />
     <ClInclude Include="GameFrame.h" />
+    <ClInclude Include="GameObject2D.h" />
     <ClInclude Include="KInput.h" />
+    <ClInclude Include="LayerManager.h" />
     <ClInclude Include="ModelManager.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Object2D.h" />
+    <ClInclude Include="RailManager.h" />
+    <ClInclude Include="ResultAnimator.h" />
+    <ClInclude Include="ResultManager.h" />
+    <ClInclude Include="ResultProcess.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ShadowObject.h" />
+    <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="Sprite2D.h" />
     <ClInclude Include="DirectX3D.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Model.h" />
-    <ClInclude Include="Object.h" />
+    <ClInclude Include="Object3D.h" />
     <ClInclude Include="PixelShader.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="Sprite3D.h" />
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="StaticObject.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UiManager.h" />
     <ClInclude Include="VertexShader.h" />
     <ClInclude Include="WaveFrontReader.h" />
     <ClInclude Include="WICTextureLoader.h" />
     <ClInclude Include="WinMain.h" />
+    <ClInclude Include="xa2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="BoxCollider.cpp" />
+    <ClCompile Include="CameraShaker.cpp" />
+    <ClCompile Include="CanvasUI.cpp" />
+    <ClCompile Include="ClearManager.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="DebugLog.cpp" />
+    <ClCompile Include="DebugManager.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="GameObject2D.cpp" />
     <ClCompile Include="KInput.cpp" />
+    <ClCompile Include="LayerManager.cpp" />
     <ClCompile Include="ModelManager.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Object2D.cpp" />
+    <ClCompile Include="RailManager.cpp" />
+    <ClCompile Include="ResultAnimator.cpp" />
+    <ClCompile Include="ResultManager.cpp" />
+    <ClCompile Include="ResultProcess.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShadowObject.cpp" />
+    <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sprite2D.cpp" />
     <ClCompile Include="DirectX3D.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Sprite3D.cpp" />
+    <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StaticObject.cpp" />
+    <ClCompile Include="UiManager.cpp" />
     <ClCompile Include="WICTextureLoader.cpp" />
     <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="xa2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ps_main</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PixelShader.h</HeaderFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ps_main</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="VertexShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">vs_main</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VertexShader.h</HeaderFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">vs_main</EntryPointName>
     </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

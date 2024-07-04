@@ -191,7 +191,7 @@ BOOL DirectX3D::CreateShader(void)
        { "TEX",    0, DXGI_FORMAT_R32G32_FLOAT, 0,  D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 
        // NORMALS
-      { "NORMAL",    0, DXGI_FORMAT_R32G32B32_FLOAT, 0,D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	 { "NORMAL",    0, DXGI_FORMAT_R32G32B32_FLOAT, 0,D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 
     };
 
@@ -310,7 +310,7 @@ BOOL DirectX3D::CreateBlendState(void)
 void DirectX3D::ClearScreen(void)
 {
     // 画面塗りつぶし色
-    float clearColor[4] = { 0.2f,0.2f, 0.2f, 1.0f }; //red,green,blue,alpha
+    float clearColor[4] = { 0.0f,0.0f, 0.0f, 1.0f }; //red,green,blue,alpha
 
     // 描画先のキャンバスと使用する深度バッファを指定する
     pD3D->Context->OMSetRenderTargets(1, &pD3D->RenderTarget, pD3D->DepthStencilView);
@@ -360,4 +360,9 @@ void DirectX3D::DirectXRelease(void)
         free(pD3D); //mallocで確保したメモリを解放する関数
         pD3D = NULL;
     }
+}
+
+void DirectX3D::SetBlendState(ID3D11BlendState* _blendState)
+{
+    pD3D->Context->OMSetBlendState(_blendState, NULL, 0xffffffff);
 }

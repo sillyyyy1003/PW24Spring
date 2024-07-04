@@ -1,4 +1,7 @@
 ﻿#include "Animation.h"
+#include <string>
+
+#include "DebugLog.h"
 
 Anime::Animation::Animation()
 {
@@ -21,14 +24,29 @@ void Anime::Animation::InitAnime(DirectX::XMINT2 _split, AnimePattern _pattern)
 	int frameNum = _split.x;
 	switch(mPattern)
 	{
-	case Null:
-		MessageBoxA(NULL, "AnimePattern is null", "Error", MB_OK | MB_ICONERROR);
+	case NULL_PATTERN:
+		//DebugLog
+		DebugLog::Log("AnimePattern is null");
 		return;
 		break;
+	case SINGLE_PATTERN:
+	{
+		int num = mSplit.x * mSplit.y;
+		for (int i = 0; i < num; i++)
+		{
+			mAnimeTable.push_back(i);
+		}
 	}
-	for (int i = 0; i < _split.x; i++) {
-		mAnimeTable.push_back(i);
+		break;
+
+	case MULTI_PATTERN:
+		for(int i=0;i<mSplit.x;i++)
+		{
+			mAnimeTable.push_back(i);
+		}
+		break;
 	}
+	
 
 	//SetEndFrame
 	mAnimeTable.push_back(-1);
@@ -38,12 +56,11 @@ void Anime::Animation::InitAnime(DirectX::XMINT2 _split, AnimePattern _pattern)
 void Anime::Animation::Update()
 {
 	if (!isPlaying) {
-		UpdateUV();//In case if need to Change UV
+		UpdateUV();//In case if only need to Change UV
 		return;
 	}
 
 	UpdateIsPlaying();
-
 	UpdateUV();
 }
 
@@ -53,7 +70,7 @@ void Anime::Animation::UpdateIsPlaying()
 
 	if (mAnimeTable.size() == 0) {
 		//DebugLog
-		MessageBoxA(NULL, "AnimeTable is null", "Error", MB_OK | MB_ICONERROR);
+		DebugLog::Log("AnimeTable is null");
 		return;
 	}
 
@@ -76,23 +93,19 @@ void Anime::Animation::UpdateIsPlaying()
 	//表示させるコマのUVを計算
 	switch (mPattern)
 	{
-	case Null:
-		//DebugLog:
-		MessageBoxA(NULL, "AnimePattern is null", "Error", MB_OK | MB_ICONERROR);
+	case NULL:
+		DebugLog::Log("AnimePattern is null!");
 		return;
 		break;
-	case SinglePattern:
+	case SINGLE_PATTERN:
 		mFrame.x = animeId % mSplit.x;
-		mFrame.y = animeId / mSplit.y;
+		mFrame.y = animeId / mSplit.x;
 		break;
-	case MultiPattern:
+	case MULTI_PATTERN:
 		//y
 		mFrame.x = animeId % mSplit.x;
 		break;
 	}
-
-	//mFrame.x = animeId % mSplit.x;
-
 
 }
 

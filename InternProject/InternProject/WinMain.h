@@ -22,6 +22,7 @@ private:
 	long long nowCount;
 
 public:
+
 	float deltaTime;
 	int frameRate = 60;
 
@@ -54,6 +55,13 @@ public:
 	void GetTimeCount() {
 		QueryPerformanceCounter(&liWork);//Get time
 		nowCount = liWork.QuadPart;//Set time got to nowCount
+	}
+
+	/// @brief 現在の時間を取得
+	/// @return 
+	long long GetNowCount() const
+	{
+		return nowCount;
 	}
 
 };

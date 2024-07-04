@@ -1,0 +1,19 @@
+﻿  Game.cpp
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\ShadowObject.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Collider.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  The contents of <format> are available only with C++20 or later.
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Game.cpp(125,33): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Game.cpp(129,32): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+  GameObject2D.cpp
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\ShadowObject.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Collider.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  The contents of <format> are available only with C++20 or later.
+  WinMain.cpp
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\ShadowObject.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Collider.h(1,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  コード生成しています。
+  2 of 1831 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  InternProject.vcxproj -> C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\x64\Release\InternProject.exe

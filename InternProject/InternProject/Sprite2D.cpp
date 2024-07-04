@@ -1,8 +1,7 @@
 ﻿#include "Sprite2D.h"
-#include "Animation.h"
 #include "Game.h"
 #include "Camera.h"
-#include "Model.h"
+
 
 using namespace DirectX;
 
@@ -41,22 +40,15 @@ void Sprite2D::GenerateMatrix(ConstBuffer& cb)
 	cb.materialDiffuse = this->mMaterialDiffuse;
 
 	cb.isLight = isLight;
-	//cb.lightDir = {};
-	//cb.ambientLight = {};
 }
 
 Sprite2D::Sprite2D()
 {
-	pModel = new Model();
-	pAnimation = new Anime();
+	pModel = std::make_unique<Model>();
+	pAnimation = std::make_unique<Anime::Animation>();
 }
 
-Sprite2D::~Sprite2D()
-{
-	delete pModel;
-	delete pAnimation;
-
-}
+Sprite2D::~Sprite2D()= default;
 
 void Sprite2D::SetPos(float x, float y, float z)
 {
@@ -73,20 +65,22 @@ void Sprite2D::SetRotate(float x, float y, float z)
 }
 
 
-void Sprite2D::InitCanvas(DirectX::XMFLOAT2 _size, DirectX::XMINT2 _split, ID3D11ShaderResourceView* _assets)
+void Sprite2D::InitSprite(DirectX::XMFLOAT2 _size, DirectX::XMINT2 _split, ID3D11ShaderResourceView* _assets,Anime::AnimePattern _pattern, ModelSet::VerticalAlign _align)
 {
 	//Create Model
-	pModel->model = Model::Create2DModel(_size, _split);
+	pModel->model = Model::Create2DModel(_size, _split, _align);
 	pModel->SetTexture(_assets);
+	
 
 	//SetAnimation
-	pAnimation->InitAnime(_split,);
-
+	pAnimation->InitAnime(_split, _pattern);
+	
 }
 
 void Sprite2D::Update()
 {
 	pAnimation->Update();
+	
 }
 
 void Sprite2D::Draw()
@@ -102,14 +96,18 @@ void Sprite2D::Draw()
 		&cb, 0, 0);
 
 	//Set data to ShaderFile
-	DirectX3D::Get()->GetD3D_Context()->IASetVertexBuffers(0, 1, &pModel->model.vertexBuffer,
-		&strides, &offsets);
-	DirectX3D::Get()->GetD3D_Context()->IASetIndexBuffer(pModel->model.indexBuffer, DXGI_FORMAT_R16_UINT, 0);
-	DirectX3D::Get()->GetD3D_Context()->PSSetShaderResources(0, 1, &pModel->model.texture);
+	if(pModel!=nullptr)
+	{
+		DirectX3D::Get()->GetD3D_Context()->IASetVertexBuffers(0, 1, pModel->model.vertexBuffer.GetAddressOf(),
+			&strides, &offsets);
+		DirectX3D::Get()->GetD3D_Context()->IASetIndexBuffer(pModel->model.indexBuffer.Get(), DXGI_FORMAT_R16_UINT, 0);
+		DirectX3D::Get()->GetD3D_Context()->PSSetShaderResources(0, 1, pModel->model.texture.GetAddressOf());
 
-	//Draw
-	DirectX3D::Get()->GetD3D_Context()->DrawIndexed(pModel->model.indexNum, 0, 0);
+		//Draw
+		DirectX3D::Get()->GetD3D_Context()->DrawIndexed(pModel->model.indexNum, 0, 0);
+	}
 }
+	
 
 void Sprite2D::SetMaterialDiffuse(Color sRGB)
 {

@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "DirectX3D.h"
-
+#define ROTATEX		(0.360022f)	//カメラの回転角度tan19.8°
 
 class Camera
 {
@@ -22,6 +22,11 @@ private:
 	//カメラの上方向
 	DirectX::XMFLOAT3 mUpDir = DirectX::XMFLOAT3(0.0f, 1.0f, 0.0f);
 
+	//DirectX::XMFLOAT3 mCameraPos = DirectX::XMFLOAT3(0.0f, 7.119f, -21.626f);
+	////注視点
+	//DirectX::XMFLOAT3 mFocusPos = DirectX::XMFLOAT3(0.0f, 0.0f, -(21.626f - 7.0f / ROTATEX));
+	////カメラの上方向
+	//DirectX::XMFLOAT3 mUpDir = DirectX::XMFLOAT3(0.0f, 1.0f, 0.0f);
 	PROJ_MODE mProjMode= _2D;
 	
 

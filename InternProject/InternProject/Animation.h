@@ -6,9 +6,9 @@ namespace Anime
 {
 	enum AnimePattern
 	{
-		Null,
-		SinglePattern,
-		MultiPattern,
+		NULL_PATTERN,
+		SINGLE_PATTERN,
+		MULTI_PATTERN,
 	};
 /*
 每一种类型的动画均为横一排 资源制作时需注意
@@ -34,13 +34,13 @@ namespace Anime
 		bool isLoop = false;
 
 		//is Now Playing or Not
-		bool isPlaying = false;
+		bool isPlaying = true;
 
 		//AnimeTable Array
 		std::vector<int> mAnimeTable;
 
 		//AnimePattern
-		AnimePattern mPattern = AnimePattern::Null;
+		AnimePattern mPattern = AnimePattern::NULL_PATTERN;
 
 
 

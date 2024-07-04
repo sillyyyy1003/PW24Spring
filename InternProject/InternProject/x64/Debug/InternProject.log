@@ -1,17 +1,5 @@
-﻿  Animation.cpp
-  Game.cpp
-  Sprite2D.cpp
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(35,53): error C2027: 認識できない型 'Animation' が使われています。
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.h(5): message : 'Animation' の宣言を確認してください
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(35,82): error C2027: 認識できない型 'Animation' が使われています。
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.h(5): message : 'Animation' の宣言を確認してください
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(35,105): error C2660: 'DirectX::XMMatrixTranslation': 関数に 2 個の引数を指定できません。
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\DirectXMathMatrix.inl(1118,29): message : 'DirectX::XMMatrixTranslation' の宣言を確認してください
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(51,19): error C2061: 構文エラー: 識別子 'Anime'
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(57,2): warning C4150: 'Animation' 型を削除するため delete 演算子が呼び出されましたが、定義がありません。
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.h(5): message : 'Animation' の宣言を確認してください
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(83,12): error C2027: 認識できない型 'Animation' が使われています。
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.h(5): message : 'Animation' の宣言を確認してください
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.cpp(89,12): error C2027: 認識できない型 'Animation' が使われています。
-C:\Users\58472\Desktop\2024_SpringIntern\InternProject\InternProject\Sprite2D.h(5): message : 'Animation' の宣言を確認してください
-  コードを生成中...
+﻿  Game.cpp
+  The contents of <format> are available only with C++20 or later.
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Game.cpp(125,33): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\InternProject\Game.cpp(129,32): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+  InternProject.vcxproj -> C:\Users\58472\Desktop\2023_HEW_Master\2024_SpringIntern\InternProject\x64\Debug\InternProject.exe
